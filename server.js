@@ -1,7 +1,7 @@
 const express = require('express')
 const config = require('config')
 const app = express()
-const port =  config.server.port || 8080
+const port =  config.get('server.port') || 8080
 
 console.log('app data is ' + config.app["my-data"])
 
