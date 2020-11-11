@@ -1,10 +1,3 @@
-# Docker
-- task: KubernetesManifest@0
-  inputs:
-    action: 'deploy'
-    kubernetesServiceConnection: 'myAKSClusterConnection'
-    namespace: 'Existing'
-    manifests: 'akuscontainerregistry.azurecr.io/hello-node:1.0'
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
@@ -43,3 +36,11 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    # Docker
+    - task: KubernetesManifest@0
+      displayName: Deploy image into Kubernetes Cluster
+      inputs:
+        action: 'deploy'
+        kubernetesServiceConnection: 'myAKSClusterConnection'
+        namespace: 'Existing'
+        manifests: 'akuscontainerregistry.azurecr.io/hello-node:1.0'
