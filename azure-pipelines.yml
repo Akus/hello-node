@@ -42,6 +42,6 @@ stages:
       inputs:
         action: 'deploy'
         kubernetesServiceConnection: 'myAKSClusterConnection'
-        namespace: ${{ parameters.envName }}
+        namespace: 'default'
         manifests: $(manifestsBundle)
         containers: '$(containerRegistry)/$(imageRepository):$(tag)'
