@@ -43,5 +43,5 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'myAKSClusterConnection'
         namespace: 'default'
-        manifests: '$(Pipeline.Workspace)/manifests/deployment.yml'
+        manifests: '$(Pipeline.Workspace)/manifests/deployment.yaml | $(Pipeline.Workspace)/manifests/service.yaml'
         containers: '$(containerRegistry)/$(imageRepository):$(tag)'
