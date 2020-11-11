@@ -43,4 +43,3 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'myAKSClusterConnection'
         namespace: 'default'
-        manifests: '$(Pipeline.Workspace)/manifests/deployment.yml | $(Pipeline.Workspace)/manifests/service.yml | $(Pipeline.Workspace)/Azure/deployment.yml | $(Pipeline.Workspace)/Azure/service.yml'
